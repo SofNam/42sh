@@ -1,0 +1,44 @@
+name: arg_zero
+command: ./42sh -c 'echo $0'
+stdout: |
+   ./42sh
+returncode: 0
+---
+name: arg_pound
+command: ./42sh -c 'echo $#'
+stdout: |
+   0
+returncode: 0
+---
+name: arg_qmark
+command: ./42sh -c 'ls -y; echo $?'
+stderr: |
+   ls: invalid option -- 'y'
+   Try 'ls --help' for more information.
+stdout: |
+   2
+returncode: 0
+---
+name: arg_oldpwd
+command: ./42sh -c 'cd /tmp && cd / && echo $OLDPWD'
+stdout: |
+   /tmp
+returncode: 0
+---
+name: arg_var_in_braces
+command: ./42sh -c 'foo=var && echo ${foo}'
+stdout: |
+   var
+returncode: 0
+---
+name: arg_var_in_text
+command: ./42sh -c 'echo having a day zer$# is bad stuff'
+stdout: |
+   having a day zer0 is bad stuff
+returncode: 0
+---
+name: arg_all_args
+command: ./42sh -c 'echo $0 $* $@' acdc the_kinks muse
+stdout: |
+   acdc the_kinks muse the_kinks muse
+returncode: 0

@@ -1,0 +1,45 @@
+name: multi001
+command: ./42sh tests/script/001.sh
+stdout: |
+  1
+  2
+  3
+returncode: 0
+---
+name: multi002
+command: ./42sh tests/script/002.sh
+stdout: |
+  hi
+  Makefile
+  yo
+  what
+returncode: 0
+---
+name: multi003
+command: ./42sh tests/script/003.sh
+stdout: |
+  Makefile
+  hi
+  hello
+  nadal
+  GOAT
+returncode: 0
+---
+name: multi004
+command: ./42sh tests/script/004.sh
+stdout: |
+  hi
+stderr: |
+  ls: invalid option -- 'y'
+  Try 'ls --help' for more information.
+returncode: 2
+---
+name: multi005
+command: ./42sh tests/script/005.sh
+stdout: |
+  hi
+  hi
+  hi
+  hi
+  hi
+returncode: 0

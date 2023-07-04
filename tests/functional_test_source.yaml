@@ -1,0 +1,23 @@
+name: source
+command: ./42sh -c "source tests/script/source.sh 1 2 3"
+stdout: |
+  1
+  2
+  3
+  argument count : 3
+returncode: 42
+---
+name: source as dot
+command: ./42sh -c ". tests/script/source.sh 1 2 3"
+stdout: |
+  1
+  2
+  3
+  argument count : 3
+returncode: 42
+---
+name: source_file_not_found
+command: ./42sh -c "source not_found"
+stderr: |
+  42sh: not_found: No such file or directory
+returncode: 1

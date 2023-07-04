@@ -1,0 +1,12 @@
+---
+name: basic_less
+command: ./42sh -c "cat < tests/script/redir_less.txt"
+stdout: |
+  We are the champion
+returncode: 0
+---
+name: redir_error
+command: ./42sh -c "ls homophobic >& foo ; cat foo; rm foo"
+stdout: |
+  ls: cannot access 'homophobic': No such file or directory
+returncode: 0

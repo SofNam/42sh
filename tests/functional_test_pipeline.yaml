@@ -1,0 +1,36 @@
+name: simple_pipe
+command: ./42sh -c "ls Makefile | cat"
+stdout: |
+   Makefile
+returncode: 0
+---
+name: simple_pipe_fail
+command: ./42sh -c "echo lol | not_found"
+stderr: |
+   42sh: not_found: command not found
+returncode: 127
+---
+name: negate_simple_pipe_fail
+command: ./42sh -c "! echo lol | not_found"
+stderr: |
+   42sh: not_found: command not found
+returncode: 0
+---
+name: negate_double_pipe
+command: ./42sh -c "! echo lol | wc -w | cat"
+stdout: |
+   1
+returncode: 1
+---
+name: saugrenu_pipe
+command: ./42sh -c "ls | grep Makefile | sort -n | tail -2"
+stdout: |
+   Makefile.am
+   Makefile.in
+returncode: 0
+---
+name: negate_saugrenu_pipe_qui_marche_pas
+command: ./42sh -c "! ls | grep Makefile | sort -n | tail -2 | saugrenu"
+stderr: |
+   42sh: saugrenu: command not found
+returncode: 0

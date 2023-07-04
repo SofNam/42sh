@@ -1,0 +1,22 @@
+name: basic_empty
+command: ./42sh tests/script/empty.sh
+returncode: 0
+---
+name: basic_echo
+command: ./42sh -c "echo Nadal is the GOAT"
+stdout: |
+  Nadal is the GOAT
+returncode: 0
+---
+name: basic_not_found
+command: ./42sh -c "chlorimetric"
+stderr: |
+  42sh: chlorimetric: command not found
+returncode: 127
+---
+name: basic_error
+command: ./42sh -c "ls -chalaziferous"
+stderr: |
+   ls: invalid option -- 'z'
+   Try 'ls --help' for more information.
+returncode: 2

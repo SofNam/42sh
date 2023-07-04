@@ -1,0 +1,5 @@
+name: case_basic
+command: ./42sh tests/script/case_basic.sh
+stdout: |
+   is some type of lamp
+returncode: 0

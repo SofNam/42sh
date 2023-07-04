@@ -1,0 +1,26 @@
+name: and
+command: ./42sh -c "echo foo && echo lol"
+stdout: |
+  foo
+  lol
+returncode: 0
+---
+name: or
+command: ./42sh -c "echo foo || echo lol"
+stdout: |
+  foo
+returncode: 0
+---
+name: and_precedence_last
+command: ./42sh -c "echo foo || echo lol && echo bar"
+stdout: |
+  foo
+  bar
+returncode: 0
+---
+name: and_precedence_first
+command: ./42sh -c "echo foo && echo lol || echo bar"
+stdout: |
+  foo
+  lol
+returncode: 0

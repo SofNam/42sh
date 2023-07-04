@@ -1,0 +1,51 @@
+name: if_no_else
+command: ./42sh tests/script/if_no_else.sh
+stdout: |
+  Makefile
+  Federer GOAT
+returncode: 0
+---
+name: if_then_else
+command: ./42sh tests/script/if_then_else.sh
+stderr: |
+  ls: cannot access 'no_exist': No such file or directory
+stdout: |
+  Nadal GOAT
+returncode: 0
+---
+name: if_then_elif
+command: ./42sh tests/script/if_then_elif.sh
+stdout: |
+  yass
+  Makefile
+returncode: 0
+---
+name: if_then_echo_keywords
+command: ./42sh tests/script/if_then_echo.sh
+stdout: |
+  Makefile
+  Do you have good wi fi else I leave ?
+returncode: 0
+---
+name: if_nested
+command: ./42sh tests/script/if_nested.sh
+stdout: |
+  Makefile
+  All is good
+stderr: |
+  ls: cannot access 'not_found': No such file or directory
+returncode: 0
+---
+name: hard_if
+command: ./42sh tests/script/if_hard.sh
+stdout: |
+  Makefile
+  oh wow
+  Makefile
+  holy cow!
+  Makefile
+  Merry Christmas to you all !
+  The End.
+stderr: |
+  ls: cannot access 'not_found': No such file or directory
+returncode: 0

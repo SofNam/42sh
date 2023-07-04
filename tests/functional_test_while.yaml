@@ -1,0 +1,24 @@
+name: while
+command: ./42sh tests/script/while.sh
+stderr: |
+   ls: invalid option -- 'y'
+   Try 'ls --help' for more information.
+returncode: 0
+---
+name: while_error
+command: ./42sh tests/script/while_error.sh
+stderr: |
+   42sh: syntax error
+returncode: 2
+---
+name: until
+command: ./42sh tests/script/until.sh
+stdout: |
+   Makefile
+returncode: 0
+---
+name: until_error
+command: ./42sh tests/script/until_error.sh
+stderr: |
+   42sh: syntax error
+returncode: 2

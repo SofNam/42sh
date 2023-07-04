@@ -1,0 +1,14 @@
+name: for
+command: ./42sh tests/script/for.sh
+stdout: |
+   1
+   2
+   3
+   4
+returncode: 0
+---
+name: for_error
+command: ./42sh tests/script/for_error.sh
+stderr: |
+   42sh: syntax error
+returncode: 2

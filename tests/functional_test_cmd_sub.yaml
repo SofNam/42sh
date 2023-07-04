@@ -1,0 +1,16 @@
+name: cmd_substitution
+command: ./42sh tests/script/cmd_sub.sh
+stdout: |
+
+  hi there
+  hi there world
+  $(echo hi there)
+  $(ls Makefile)
+returncode: 42
+---
+name: cmd_substitution_only
+command: ./42sh -c '`ls -y`'
+stderr: |
+  ls: invalid option -- 'y'
+  Try 'ls --help' for more information.
+returncode: 2

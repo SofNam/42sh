@@ -1,0 +1,26 @@
+name: alias
+command: ./42sh tests/script/alias.sh
+stdout: |
+  foo='echo'
+  list='ls'
+  quit='exit'
+  bar
+  alias foo='echo'
+  alias list='ls'
+  alias quit='exit'
+  hi
+  Makefile.am
+returncode: 42
+---
+name: unalias
+command: ./42sh tests/script/unalias.sh
+stdout: |
+  Makefile.am
+  Hello World!
+  l='ls'
+  peace_out='exit'
+stderr: |
+  42sh: unalias: -f: invalid option
+  unalias: usage: unalias [-a] name [name ...]
+  42sh: say: command not found
+returncode: 42

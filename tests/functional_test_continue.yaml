@@ -1,0 +1,27 @@
+name: basic_continue
+command: ./42sh tests/script/basic_continue.sh
+stdout: |
+  foo
+  foo
+  foo
+  foo
+  foo
+returncode: 0
+---
+name: two_loop_continue
+command: ./42sh tests/script/two_loop_continue.sh
+stdout: |
+  Makefile
+  Makefile
+  Makefile
+returncode: 0
+---
+name: two_loop_continue_zero
+command: ./42sh tests/script/two_loop_continue_zero.sh
+stdout: |
+  Makefile
+  hi
+  hi there
+stderr: |
+  42sh: continue: 0: loop count out of range
+returncode: 0

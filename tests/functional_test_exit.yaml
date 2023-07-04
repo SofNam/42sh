@@ -1,0 +1,14 @@
+name: exit_normal
+command: ./42sh -c "exit"
+returncode: 0
+---
+name: exit_with_3
+command: ./42sh -c "exit 3"
+returncode: 3
+---
+name: exit_in_while_loop
+command: ./42sh -c "if ls -y; then echo foo; else exit; fi"
+stderr: |
+  ls: invalid option -- 'y'
+  Try 'ls --help' for more information.
+returncode: 2

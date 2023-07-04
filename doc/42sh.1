@@ -1,0 +1,88 @@
+'\" et
+.TH 42SH "1" 2020 "EPITA/ING1" "IN LOCKDOWN Programmer's Manual"
+.\"
+.SH NAME
+42sh
+\(em shell 42, EPITA's command language interpreter
+.SH SYNOPSIS
+.B 42sh
+[options]
+[command_string | file]
+.SH DESCRIPTION
+The
+.IR 42sh
+utility is a command language interpreter that shall execute commands
+read from a command line string, the standard input, or a specified
+file. The application shall ensure that the commands to be executed are
+expressed in the language described in
+.IR "Chapter 2" ", " "Shell Command Language".
+.SH OPTIONS
+\fB42sh\fR
+interprets the following options when it is invoked:
+.PP
+.PD 0
+.TP 10
+.B \-c
+If the
+.B \-c
+option is present, then commands are read from the first non-option argument
+.IR command_string .
+If there are arguments after the
+.IR command_string ,
+the first argument is assigned to
+.B $0
+and any remaining arguments are assigned to the positional parameters.
+The assignment to
+.B $0
+sets the name of the shell, which is used in warning and error messages.
+.TP
+.B [\-+]O [\fIshopt_option\fP]
+\fIshopt_option\fP is one of the shell options accepted by the
+\fBshopt\fP builtin.
+If \fIshopt_option\fP is present, \fB\-O\fP sets the value of that option;
+\fB+O\fP unsets it.
+If \fIshopt_option\fP is not supplied, the names and values of the shell
+options accepted by \fBshopt\fP are printed on the standard output.
+If the invocation option is \fB+O\fP, the output is displayed in a format
+that may be reused as input.
+.\"
+.PD
+.SH AUTHORS
+.B Thien Phuoc Le Ngoc
+.br
+thien-phuoc.le-ngoc@epita.fr
+.PP
+.B Yassin Bouhassoun
+.br
+yassin.bouhassoun@epita.fr
+.PP
+.B Luu Hoang Long Vo
+.br
+luu-hoang-long.vo@epita.fr
+.PP
+.B Thibaud Deleon
+.br
+thibaud.deleon@epita.fr
+.SH "FUTURE DIRECTIONS"
+None.
+.SH "SEE ALSO"
+.IR "\fIsh\fR\^",
+.IR "\fIbash\fR\^",
+.IR "\fIscsh\fR\^",
+.IR "\fIpsh\fR\^",
+.IR "\fIksh\fR\^",
+.IR "\fIpdksh\fR\^",
+.IR "\fImksh\fR\^",
+.IR "\fIash\fR\^",
+.IR "\fIdash\fR\^",
+.IR "\fIrc\fR\^",
+.IR "\fIes\fR\^",
+.IR "\fIcsh\fR\^",
+.IR "\fItcsh\fR\^",
+.IR "\fIzsh\fR\^",
+.P
+.\"
+.PP
+To report any typographical or formatting errors that appear
+in this page, see /dev/null .
+

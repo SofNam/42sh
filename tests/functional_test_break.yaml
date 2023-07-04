@@ -1,0 +1,21 @@
+name: basic_break
+command: ./42sh tests/script/basic_break.sh
+stdout: |
+  foo
+returncode: 0
+---
+name: two_loop_break
+command: ./42sh tests/script/two_loop_break.sh
+stdout: |
+  Makefile
+returncode: 0
+---
+name: two_loop_break_zero
+command: ./42sh tests/script/two_loop_break_zero.sh
+stdout: |
+  Makefile
+  stupid
+  hello world
+stderr: |
+  42sh: break: 0: loop count out of range
+returncode: 0

@@ -1,0 +1,40 @@
+name: export
+command: ./42sh -c "export foo=; export | grep foo"
+stdout: |
+  export foo=
+returncode: 0
+---
+name: export_invalid_name
+command: ./42sh -c "export 9foo"
+stderr: |
+  42sh: export: `9foo': not a valid identifier
+returncode: 1
+---
+name: export_error
+command: ./42sh -c "export -z"
+stderr: |
+  42sh: export: -z: invalid option
+  export: usage: export [-n] [name[=value] ...] or export -p
+returncode: 2
+---
+name: export_assign
+command: ./42sh -c "export foo=var ;export -p | grep foo"
+stdout: |
+  export foo=var
+returncode: 0
+---
+name: export_assign
+command: ./42sh -c "export foo=var ;export foo; export -p | grep foo"
+stdout: |
+  export foo=var
+returncode: 0
+---
+name: export_assign
+command: ./42sh -c "export foo=var ;export foo=; export -p | grep foo"
+stdout: |
+  export foo=
+returncode: 0
+---
+name: export_unset
+command: ./42sh -c "export foo=var ;export foo=; export -np foo; export | grep foo"
+returncode: 1

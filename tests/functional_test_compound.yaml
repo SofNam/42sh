@@ -1,0 +1,9 @@
+name: multiline
+command: ./42sh tests/script/multiline_compound.sh
+stderr: |
+   ls: cannot access 'not_found': No such file or directory
+stdout: |
+   hi
+   lol
+   whattttt
+returncode: 0

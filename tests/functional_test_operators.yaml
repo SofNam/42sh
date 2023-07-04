@@ -1,0 +1,12 @@
+name: semicolon
+command: ./42sh -c "cat /dev/null; echo foo"
+stdout: |
+  foo
+returncode: 0
+---
+name: triple_delimiter
+command: ./42sh -c "cat /dev/null& echo foo;cat /dev/null ;echo lol"
+stdout: |
+  foo
+  lol
+returncode: 0
