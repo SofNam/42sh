@@ -13,7 +13,7 @@ Le-khanh.nam@epita.fr
 **Johann Lahoud**
 Johann.lahoud@epita.fr
 
-**Matthias Brown*
+**Matthias Brown**
 matthias.brown@epita.fr
 
 **Mohamad Al hawari**
